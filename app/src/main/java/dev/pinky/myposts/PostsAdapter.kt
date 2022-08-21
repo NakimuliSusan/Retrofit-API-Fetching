@@ -1,5 +1,6 @@
 package dev.pinky.myposts
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +21,15 @@ class PostsAdapter (var postsList: List<Post> ):
         holder.binding.tvId.text = currentPost.id.toString()
         holder.binding.tvTitle.text = currentPost.title
         holder.binding.tvbody.text = currentPost.body
+
+        val context = holder.itemView.context
+        holder.binding.cvPosts.setOnClickListener {
+            val intent = Intent(context,CommentsActivity::class.java)
+            intent.putExtra("POST_ID",currentPost.id)
+            context.startActivity(intent)
+        }
+        holder.binding
+
 
 
 
